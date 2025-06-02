@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Revisão 2º Bimestre - Pensamento Computacional</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      overflow: hidden;
+    }
+    .slide {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 30px;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+    .slide.active {
+      display: flex;
+    }
+    h1, h2 {
+      color: #0057ff;
+    }
+    ul {
+      text-align: left;
+      max-width: 800px;
+      font-size: 1.3em;
+    }
+    #navigator {
+      position: fixed;
+      bottom: 10px;
+      right: 20px;
+      font-size: 1em;
+    }
+    #navigator button {
+      padding: 6px 12px;
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="slide active"><h1>Revisão 2º Bimestre</h1><p>Pensamento Computacional – UNIPAR</p><p>Prof. Edvaldo Rodrigues</p></div>
+
+<div class="slide"><h2>Conteúdos do 2º Bimestre</h2><ul><li>Letramento Digital</li><li>Reconhecimento de Padrões</li><li>Abstração de Problemas</li><li>Resolução de Problemas</li></ul></div>
+
+<div class="slide"><h2>Letramento Digital</h2><ul><li>Diferença entre dados e informação</li><li>Softwares de uso comum: edição, planilhas, apresentações</li><li>Serviços de nuvem e compartilhamento online</li><li>Segurança digital: riscos e boas práticas</li></ul></div>
+
+<div class="slide"><h2>🆕 Novidade – Letramento Digital 2025</h2><ul><li>IA Generativa: textos, imagens, códigos</li><li>Cidadania Digital: ética e privacidade</li><li>Alfabetização Midiática: combater fake news</li><li>Ferramentas: ChatGPT, Canva, Notion, Google Bard</li></ul></div>
+
+<div class="slide"><h2>Reconhecimento de Padrões</h2><ul><li>Identificar repetições e tendências</li><li>Exemplos: antivírus, recomendações, correções automáticas</li><li>Facilita previsões e automações</li></ul></div>
+
+<div class="slide"><h2>Abstração de Problemas</h2><ul><li>Foco no essencial, ignorando detalhes</li><li>Aplicações em apps, sistemas e programação</li><li>Simplifica a resolução de problemas</li></ul></div>
+
+<div class="slide"><h2>Resolução de Problemas</h2><ul><li>Entender, analisar e propor soluções</li><li>Uso de algoritmos e raciocínio lógico</li><li>Integra todos os pilares do Pensamento Computacional</li></ul></div>
+
+<div class="slide"><h2>Avaliações e Atividades</h2><ul><li>Prova: 16/06</li><li>Atividades em Google Forms</li><li>Trabalhos práticos individuais e em grupo</li></ul></div>
+
+<div class="slide"><h2>Conclusão</h2><ul><li>Pensamento Computacional amplia sua capacidade de resolver problemas</li><li>Você aplicou conceitos importantes do mundo digital</li><li>Continue explorando, aprendendo e conectando ideias!</li></ul></div>
+
+<div id="navigator">
+  <span id="counter">Slide 1</span>
+  <button onclick="prevSlide()">◀</button>
+  <button onclick="nextSlide()">▶</button>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const counter = document.getElementById('counter');
+let current = 0;
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[index].classList.add('active');
+  counter.textContent = `Slide ${index + 1} de ${slides.length}`;
+}
+function nextSlide() {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}
+function prevSlide() {
+  current = (current - 1 + slides.length) % slides.length;
+  showSlide(current);
+}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') nextSlide();
+  if (e.key === 'ArrowLeft') prevSlide();
+});
+showSlide(current);
+</script>
+
+</body>
+</html>
